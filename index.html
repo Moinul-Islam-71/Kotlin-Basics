@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Kotlin Cheat Sheet</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+         
+    
+        <style>
+            body { 
+                    font-family: Arial, sans-serif;
+                    margin: 0; 
+                    padding: 0;  
+                    background-color: #f4f4f4; 
+                } 
+
+            .container { 
+                max-width: 800px; 
+                margin: 20px     auto; 
+                padding: 20px; 
+                background-color: #0e0e0e; 
+                box-shadow: 0 0 10px rgba  (0, 0, 0, 0.1); 
+            }
+             h1, h2, h3 { 
+                color: #333; 
+            } 
+            pre { 
+                background-color:     #f8f8f8; 
+                padding: 10px; 
+                border: 1px solid #9a9a9a; 
+                overflow-x: auto; 
+            } 
+
+             code { 
+                font-family: 'Courier New', Courier, monospace; 
+            } 
+        </style> 
+    </head>
+
+<body>
+
+<h1>Kotlin Cheat Sheet</h1>
+
+<h2>1. Basic Syntax</h2>
+<pre><code class="kotlin">fun main() {
+    println("Hello, World!")  // Prints a message
+}</code></pre>
+
+<h3>Variable Declaration:</h3>
+<pre><code class="kotlin">val name = "Taiyo"  // Immutable (can't change)
+var age = 25        // Mutable (can change)
+age = 26            // Valid for `var`</code></pre>
+
+<h3>Data Types:</h3>
+<pre><code class="kotlin">val num: Int = 10                 // Integer type
+val pi: Double = 3.14             // Double type
+val isKotlinFun: Boolean = true   // Boolean type
+val letter: Char = 'K'            // Character type
+val name: String = "Kotlin"       // String type</code></pre>
+
+<h2>2. Control Flow</h2>
+<h3>If-Else:</h3>
+<pre><code class="kotlin">val a = 10
+val b = 20
+val max = if (a > b) a else b  // Finds the maximum of two numbers
+println("Maximum: $max")  // Output the maximum value</code></pre>
+
+<h3>When:</h3>
+<pre><code class="kotlin">val x = 3
+when (x) {
+    1 -> println("One")  // Prints if x is 1
+    2 -> println("Two")  // Prints if x is 2
+    in 3..5 -> println("Three to Five")  // Range check for 3 to 5
+    else -> println("Other")  // Prints if x is not 1, 2, or between 3 and 5
+}</code></pre>
+
+<h3>Loops:</h3>
+<h4>For Loop:</h4>
+<pre><code class="kotlin">for (i in 1..5) {  // Loops from 1 to 5
+    println("Number: $i")  // Prints each number
+}
+
+for (i in 5 downTo 1 step 2) {  // Loops from 5 to 1 with step 2
+    println("Step: $i")  // Prints 5, 3, 1
+}</code></pre>
+
+<h4>While Loop:</h4>
+<pre><code class="kotlin">var i = 5
+while (i > 0) {  // Loops as long as i is greater than 0
+    println(i--)  // Prints i and then decrements it
+}</code></pre>
+
+<h2>3. Functions</h2>
+<h3>Regular Function:</h3>
+<pre><code class="kotlin">fun multiply(a: Int, b: Int): Int {  // Function to multiply two integers
+    return a * b  // Returns the product of a and b
+}</code></pre>
+
+<h3>Single-Expression Function:</h3>
+<pre><code class="kotlin">fun greet(name: String) = "Hello, $name!"  // Returns a greeting message
+println(greet("Taiyo"))  // Prints the greeting for Taiyo</code></pre>
+
+<h3>Default Arguments:</h3>
+<pre><code class="kotlin">fun printInfo(name: String = "Anonymous", age: Int = 0) {  
+    println("Name: $name, Age: $age")  // Prints name and age
+}
+printInfo("Taiyo", 25)  // Prints the provided values
+printInfo()  // Uses default values for name and age</code></pre>
+
+<h3>Named Arguments:</h3>
+<pre><code class="kotlin">printInfo(age = 30, name = "Kotlin")  // Passes values explicitly</code></pre>
+
+<h2>4. Classes and Objects</h2>
+<h3>Primary Constructor with Properties:</h3>
+<pre><code class="kotlin">class Person(val name: String, var age: Int) {  // Class with a primary constructor
+    fun introduce() {  // Method to introduce the person
+        println("Hi, I'm $name, and I'm $age years old.")  // Prints introduction
+    }
+}</code></pre>
+
+<h3>Secondary Constructor:</h3>
+<pre><code class="kotlin">class Student(val name: String) {  // Class with a secondary constructor
+    var grade: String = "Unknown"  // Default grade is "Unknown"
+
+    constructor(name: String, grade: String) : this(name) {  // Secondary constructor
+        this.grade = grade  // Sets grade value
+    }
+}</code></pre>
+
+<h3>Object Creation:</h3>
+<pre><code class="kotlin">fun main() {
+    val person = Person("Taiyo", 25)  // Creates a Person object
+    person.introduce()  // Calls the introduce method
+
+    val student = Student("Saitama", "A")  // Creates a Student object with grade
+    println("${student.name}'s grade is ${student.grade}")  // Prints student's grade
+}</code></pre>
+
+<h2>5. Collections</h2>
+<h3>Lists:</h3>
+<pre><code class="kotlin">val immutableList = listOf("Apple", "Banana", "Cherry")  // Immutable list
+val mutableList = mutableListOf("Dog", "Cat")  // Mutable list
+
+mutableList.add("Parrot")  // Adds a new element to the mutable list
+println(mutableList)  // Prints the updated list</code></pre>
+
+<h3>Maps:</h3>
+<pre><code class="kotlin">val immutableMap = mapOf("name" to "Taiyo", "age" to 25)  // Immutable map with key-value pairs
+val mutableMap = mutableMapOf("language" to "Kotlin")  // Mutable map
+
+mutableMap["level"] = "Advanced"  // Adds/updates a key-value pair in the mutable map
+println(mutableMap)  // Prints the updated map</code></pre>
+
+<h3>Sets:</h3>
+<pre><code class="kotlin">val set = setOf(1, 2, 3, 3)  // Set (duplicates will be removed)
+println(set)  // Prints the set (output will be {1, 2, 3})</code></pre>
+
+<h2>6. Null Safety</h2>
+<pre><code class="kotlin">var name: String? = null  // Nullable variable (can hold null)
+println(name?.length ?: "Name is null")  // Elvis operator: if name is null, print "Name is null"</code></pre>
+
+<h2>7. Extension Functions</h2>
+<pre><code class="kotlin">fun String.addExclamation() = this + "!"  // Adds "!" at the end of a string
+println("Kotlin".addExclamation())  // Prints "Kotlin!"</code></pre>
+
+<h2>8. Higher-Order Functions</h2>
+<pre><code class="kotlin">fun operate(x: Int, y: Int, operation: (Int, Int) -> Int): Int {  // Higher-order function
+    return operation(x, y)  // Applies the operation function to x and y
+}
+val result = operate(5, 3) { a, b -> a + b }  // Passes a lambda function to add x and y
+println(result)  // Prints the result of addition (8)</code></pre>
+
+<h2>9. Coroutines</h2>
+<pre><code class="kotlin">import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    launch {  // Launches a coroutine
+        delay(1000L)  // Simulates a delay
+        println("World!")  // Prints "World!"
+    }
+    println("Hello,")  // Prints "Hello,"
+}</code></pre>
+
+<pre><code class="kotlin">fun main() = runBlocking {
+    val job1 = async { task1() }  // Launches async task1
+    val job2 = async { task2() }  // Launches async task2
+
+    println("Result: ${job1.await() + job2.await()}")  // Waits for both tasks to finish and prints the sum
+}
+
+suspend fun task1(): Int {
+    delay(1000L)  // Simulates a delay
+    return 10  // Returns 10
+}
+
+suspend fun task2(): Int {
+    delay(1000L)  // Simulates a delay
+    return 20  // Returns 20
+}</code></pre>
+
+<h2>10. Data Classes</h2>
+<pre><code class="kotlin">data class User(val name: String, val age: Int)  // Data class with two properties
+
+val user = User("Taiyo", 25)  // Creates a User object
+println(user)  // Prints the user object (User(name=Taiyo, age=25))
+</code></pre>
+
+<h2>11. Lambda Expressions</h2>
+<pre><code class="kotlin">
+// Defining a lambda expression that squares the input
+val square = { x: Int -> x * x }  
+
+// Calling the lambda expression with 4 as the argument and printing the result
+println(square(4))  // Output: 16
+</code></pre>
+
+</body>
+</html>
