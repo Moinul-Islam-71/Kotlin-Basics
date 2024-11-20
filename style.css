@@ -1,0 +1,21 @@
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #d1cece;
+    color: #000000;
+    padding: 20px;
+}
+
+pre, code {
+    background-color: #1e1e1e;
+    color: #ECEFF1;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    overflow-x: auto;
+}
+
+.keyword { color: #C792EA; } /* Purple for keywords */
+.function { color: #82AAFF; } /* Light blue for functions */
+.string { color: #C3E88D; } /* Green for strings */
+.number { color: #F78C6C; } /* Orange for numbers */
+.comment { color: #546E7A; font-style: italic; } /* Gray for comments */
